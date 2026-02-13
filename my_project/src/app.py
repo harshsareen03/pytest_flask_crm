@@ -7,8 +7,10 @@
 # def multipuly(a,b):
 #     return a*b
 
-# def division(a,b):
-#     return a/b
+def division(a,b):
+    if b==0:
+        raise ValueError('cannot divide by zero')
+    return a/b
 
 # def division(a,b):
 #     return a/b
