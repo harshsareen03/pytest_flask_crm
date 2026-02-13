@@ -1,4 +1,7 @@
+import pytest
 from app import add, sub, multipuly, division
+from app import calccc
+
 # def test_add():
 #     result = add(2,3)
 #     assert result == 6
@@ -14,7 +17,7 @@ from app import add, sub, multipuly, division
 # def test_dev():
 #     result = division(10,5)
 #     assert result == 2
-
+'''
 def test_calc():
     assert add(1,2)==3
     assert sub(9,1)==8
@@ -23,7 +26,25 @@ def test_calc():
 def test_calc_add():
     assert add(1,2)==3
     assert add(9,1)==10
-    assert add(3,4)==7
+    assert add(3,4)==7'''
+
+# pytest fixture
+@pytest.fixture
+def calc():
+    return calccc()
+
+def test_calc_add(calc):
+    assert calc.add(1,2)==3
+
+# parametrized test
+@pytest.mark.parametrize("a,b,expected", [
+    (1,2,3),
+    (9,1,10),
+    (3,4,7)
+])
+def test_calc_add_param(calc,a,b,expected):
+    assert calc.add(a,b)==expected
+    
 
 
 
