@@ -1,16 +1,11 @@
-from flask import Flask, jsonify, request
+def add(a,b):
+    return a+b
 
-app = Flask(__name__)
+def sub(a,b):
+    return a-b
 
-@app.route('/hello', methods=['GET'])
-def hello():
-    return jsonify({"message": "Hello, World!"})
+def multipuly(a,b):
+    return a*b
 
-@app.route('/add', methods=['POST'])
-def add():
-    data=request.get_json()
-    result=data['a'] + data['b']
-    return jsonify({"result": result})
-
-if __name__ == '__main__':
-    app.run(debug=True)
+def division(a,b):
+    return a/b
